@@ -32,16 +32,16 @@
   </v-app-bar>
 </template>
 <script lang="ts">
+import userService from "../../services/userService";
+
 export default {
   data() {
     return {
-      user: {
-        name: "Hellen Smith",
-        role: "Admin",
-        notifications: 4,
-        imgPath: "",
-      },
+      user: {},
     };
+  },
+  created() {
+    this.user = userService.getUser();
   },
 };
 </script>
