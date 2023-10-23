@@ -1,8 +1,17 @@
 <template>
   <v-navigation-drawer permanent expand-on-hover rail rail-width="65">
-    <v-list>
-      <v-list-item nav>
-        <template v-slot:prepend>
+    <v-list density="compact" nav>
+      <v-list-item
+        title="Dashboard"
+        prepend-icon="mdi-home"
+        base-color="primary"
+        value="/"
+        rounded="lg"
+        density="comfortable"
+        variant="flat"
+        class="pl-3 dashboardItem"
+      >
+        <!-- <template v-slot:prepend>
           <v-btn
             variant="flat"
             prepend-icon="mdi-home"
@@ -12,7 +21,7 @@
           >
             Dashboard
           </v-btn>
-        </template>
+        </template> -->
       </v-list-item>
     </v-list>
     <!-- <v-divider></v-divider> -->
@@ -22,12 +31,16 @@
         :key="i"
         :value="item"
         color="primary"
+        elevation="3"
+        :prepend-icon="item.icon"
+        :title="item.name"
+        class="pl-3 mb-3"
       >
-        <template v-slot:prepend>
+        <!-- <template v-slot:prepend>
           <v-icon :icon="item.icon"></v-icon>
         </template>
 
-        <v-list-item-title v-text="item.name"></v-list-item-title>
+        <v-list-item-title v-text="item.name"></v-list-item-title> -->
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
@@ -51,3 +64,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.dashboardItem > i {
+  opacity: 1 !important;
+}
+</style>

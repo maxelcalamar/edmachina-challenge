@@ -1,18 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="368">
-    <v-card-item title="Florida">
-      <template v-slot:subtitle>
-        <v-icon
-          icon="mdi-alert"
-          size="18"
-          color="error"
-          class="me-1 pb-1"
-        ></v-icon>
-
-        Extreme Weather Alert
-      </template>
-    </v-card-item>
-
+  <v-card class="mx-auto" max-width="360" elevation="4">
     <v-card-text class="py-0">
       <v-row align="center" no-gutters>
         <v-col class="text-h2" cols="6"> 64&deg;F </v-col>
