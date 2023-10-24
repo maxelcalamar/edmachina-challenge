@@ -1,5 +1,7 @@
+import IStudent from "@/types/student";
+
 export default {
-  getStudent(id: number) {
+  getStudent(id: number): IStudent {
     return {
       id,
       fullName: "Danielle Munchen Schollengberg",
