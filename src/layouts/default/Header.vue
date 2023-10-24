@@ -8,8 +8,15 @@
     <v-btn icon>
       <v-icon>mdi-web</v-icon>
     </v-btn>
-
-    <v-btn icon="mdi-moon-waning-crescent"> </v-btn>
+    <v-btn
+      :icon="
+        store.state.theme == 'light'
+          ? 'mdi-moon-waning-crescent'
+          : 'mdi-weather-sunny'
+      "
+      @click="changeTheme"
+    >
+    </v-btn>
 
     <v-btn icon="mdi-bell">
       <v-badge :content="user.notifications" color="error">
@@ -31,17 +38,23 @@
     </template>
   </v-app-bar>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 import userService from "../../services/userService";
+import { ref, onMounted } from "vue";
+import { useStore } from "vuex";
 
-export default {
-  data() {
-    return {
-      user: {},
-    };
-  },
-  created() {
-    this.user = userService.getUser();
-  },
+let user = ref({});
+
+onMounted(() => {
+  user.value = userService.getUser();
+});
+
+const store = useStore();
+
+const changeTheme = () => {
+  if (store.getters.currentTheme) {
+    const newTheme = store.getters.currentTheme == "light" ? "dark" : "light";
+    store.commit("setTheme", newTheme);
+  }
 };
 </script>

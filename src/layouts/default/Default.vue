@@ -11,4 +11,6 @@
 import DefaultView from "./View.vue";
 import Header from "./Header.vue";
 import Sidebar from "./Sidebar.vue";
+
+//TODO: obtener informacion de usuario logueado aca
 </script>
