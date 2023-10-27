@@ -43,7 +43,7 @@ import userService from "../../services/userService";
 import { ref, onMounted } from "vue";
 import { useStore } from "vuex";
 
-let user = ref({});
+let user: any = ref({});
 
 onMounted(() => {
   user.value = userService.getUser();

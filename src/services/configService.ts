@@ -1,12 +1,6 @@
 export default {
-  getSidebarOptions() {
+  getSidebarOptions(): any {
     return [
-      //   {
-      //     name: "Dashboard",
-      //     icon: "mdi-home",
-      //     link: "/",
-      //     options: [{}],
-      //   },
       {
         name: "Smart Enroller",
         icon: "mdi-plus-box",

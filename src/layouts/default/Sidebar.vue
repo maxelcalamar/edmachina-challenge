@@ -11,42 +11,21 @@
         variant="flat"
         class="pl-3 dashboardItem"
       >
-        <!-- <template v-slot:prepend>
-          <v-btn
-            variant="flat"
-            prepend-icon="mdi-home"
-            color="primary"
-            rounded="lg"
-            density="comfortable"
-          >
-            Dashboard
-          </v-btn>
-        </template> -->
       </v-list-item>
     </v-list>
-    <!-- <v-divider></v-divider> -->
     <v-list density="compact" nav>
       <v-list-item
         v-for="(item, i) in sidebarOptions"
         :key="i"
         :value="item"
         color="primary"
-        elevation="3"
         :prepend-icon="item.icon"
         :title="item.name"
-        class="pl-3 mb-3"
+        class="pl-3 mb-3 sideBarElevation"
       >
-        <!-- <template v-slot:prepend>
-          <v-icon :icon="item.icon"></v-icon>
-        </template>
-
-        <v-list-item-title v-text="item.name"></v-list-item-title> -->
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
-  <!-- <v-main style="height: 250px"></v-main>
-    </v-layout>
-  </v-card> -->
 </template>
 <script lang="ts">
 import configService from "../../services/configService";
@@ -56,7 +35,7 @@ export default {
     return {
       drawer: true,
       rail: true,
-      sidebarOptions: [{}],
+      sidebarOptions: [{ icon: String, name: String }],
     };
   },
   created() {
@@ -65,7 +44,12 @@ export default {
 };
 </script>
 <style scoped>
-.dashboardItem > i {
+.dashboardItem >>> .v-list-item__prepend > .v-icon {
   opacity: 1 !important;
+}
+.sideBarElevation {
+  box-shadow: 0px 3px 3px -2px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0)),
+    0px 3px 4px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0)),
+    0px 1px 8px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.12)) !important;
 }
 </style>
