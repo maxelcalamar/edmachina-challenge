@@ -1,5 +1,6 @@
 <template>
   <v-label>
+    <slot></slot>
     <strong>{{ props.text }} </strong>
   </v-label>
 </template>

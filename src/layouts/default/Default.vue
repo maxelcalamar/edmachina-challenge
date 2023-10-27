@@ -4,6 +4,7 @@
     <!-- <default-bar /> -->
     <sidebar></sidebar>
     <default-view />
+    <!-- FOOTER -->
   </v-app>
 </template>
 
